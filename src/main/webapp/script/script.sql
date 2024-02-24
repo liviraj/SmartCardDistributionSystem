@@ -2,6 +2,14 @@ CREATE database `scds` ;
 
 use scds;
 
+CREATE TABLE `vms`.`login` (
+  `loginId` INT NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(255) NULL,
+  `password` VARCHAR(255) NULL,
+  PRIMARY KEY (`loginId`));
+  
+INSERT INTO `vms`.`login` (`username`, `password`) VALUES ('admin', 'admin');
+
 CREATE TABLE `scds`.`rationcarddetails` (
   `rationCardId` INT NOT NULL AUTO_INCREMENT,
   `familyHeadName` VARCHAR(45) NULL,
