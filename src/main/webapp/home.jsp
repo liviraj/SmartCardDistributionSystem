@@ -24,7 +24,7 @@ h1{
 </head>
 
 <body>
-<center><h1>Smart Card Distribution System</h1></center>
+<center><h1>Smart Ration̥ Distribution System</h1></center>
 <div class="container">
 <div class="panel panel-success">
 <form name="logform" onsubmit="validate">

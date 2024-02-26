@@ -17,7 +17,7 @@ h1{
 </head>
 
 <body background="card_system.jpg">
-<center><h1>Smart Card Distribution System</h1></center>
+<center><h1>Smart Ration̥ Distribution System</h1></center>
 <form>
 <div class="container">
 <nav class="navbar navbar-default">  

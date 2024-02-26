@@ -19,6 +19,7 @@ public class RationCardModel {
 	private String district;
 	private String state;
 	private String pincode;
+	private String plan;
 
 	public int getRationCardId() {
 		return rationCardId;
@@ -140,13 +141,21 @@ public class RationCardModel {
 		this.pincode = pincode;
 	}
 
+	public String getPlan() {
+		return plan;
+	}
+
+	public void setPlan(String plan) {
+		this.plan = plan;
+	}
+
 	@Override
 	public String toString() {
 		return "RationCardModel [rationCardId=" + rationCardId + ", rationCardNumber=" + rationCardNumber
 				+ ", familyHeadName=" + familyHeadName + ", dob=" + dob + ", gender=" + gender + ", fatherName="
 				+ fatherName + ", motherName=" + motherName + ", occupation=" + occupation + ", noOfFamilyMembers="
 				+ noOfFamilyMembers + ", address1=" + address1 + ", address2=" + address2 + ", city=" + city
-				+ ", district=" + district + ", state=" + state + ", pincode=" + pincode + "]";
+				+ ", district=" + district + ", state=" + state + ", pincode=" + pincode + ", plan=" + plan + "]";
 	}
 
 }

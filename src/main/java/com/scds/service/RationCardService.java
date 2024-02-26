@@ -39,7 +39,7 @@ public class RationCardService {
 				model.setDistrict(rs.getString("district"));
 				model.setState(rs.getString("state"));
 				model.setPincode(rs.getString("pincode"));
-
+				model.setPlan(rs.getString("plan"));
 				studentList.add(model);
 			}
 		} catch (SQLException e) {
@@ -144,7 +144,27 @@ public class RationCardService {
 		}
 		return status;
 	}
-
+	
+	public int subscribePlan(int id, String paln) {
+		int status = 0;
+		try {
+			try {
+				con = DbConnection.getConnection();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			PreparedStatement ps = (PreparedStatement) con.prepareStatement(
+					"update rationcarddetails set plan=? where rationCardId='"
+							+ id + "'");
+			ps.setString(1, paln);
+			status = ps.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return status;
+	}
+	
 	public String check(String check) {
 		Connection con = null;
 		Statement st = null;

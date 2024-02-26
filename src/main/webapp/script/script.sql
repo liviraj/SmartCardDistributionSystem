@@ -30,3 +30,6 @@ CREATE TABLE `scds`.`rationcarddetails` (
 
 ALTER TABLE `scds`.`rationcarddetails` 
 ADD COLUMN `rationCardNumber` VARCHAR(45) NULL AFTER `rationCardId`;
+
+ALTER TABLE `scds`.`rationcarddetails` 
+ADD COLUMN `plan` VARCHAR(45) NULL AFTER `pincode`;

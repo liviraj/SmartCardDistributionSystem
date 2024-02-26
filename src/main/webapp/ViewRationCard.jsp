@@ -28,9 +28,10 @@
 	<div class="container-fluid">
 		<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
 		<center>
-			<h1>Smart Card Distribution System</h1>
+			<h1>Smart Ration Distribution System</h1>
 		</center>
-		</nav>
+		̥ </nav>
+		̥
 		<center>
 			<p>
 				<font size="5">Ration Card Holder Information</font>
@@ -40,7 +41,11 @@
 			<span style="color: red">${msg} </span>
 		</center>
 		<div class="form-row">
-			<div class="col-md-11"></div>
+			<div class="col-md-10"></div>
+			<div class="col-md-1">
+				<a href="RationCardController?action=viewStock"><button class="btn btn-info">View
+						Ration Stock</button></a>
+			</div>
 			<div class="col-md-1">
 				<form action="LogoutController">
 					<input type="submit" name="submit" value="logout"
@@ -49,7 +54,7 @@
 				<input type="hidden" name="confirm" id="confirm" value=""></input>
 			</div>
 		</div>
-
+<br><br>
 		<center>
 			<table border="3" class="table table-striped">
 				<thead class="thead-dark">
@@ -61,7 +66,8 @@
 						<th>Father Name</th>
 						<th>Mother Name</th>
 						<th>Occupation</th>
-						<th>No Of Family Members
+						<th>No Of Family Members</th>
+						<th>Subscribed Plan</th>
 						<th colspan="1"><a href="RationCardController?action=add">Add
 								New</a></th>
 					</tr>
@@ -76,11 +82,14 @@
 						<td><c:out value="${detail.motherName}"></c:out></td>
 						<td><c:out value="${detail.occupation}"></c:out></td>
 						<td><c:out value="${detail.noOfFamilyMembers}"></c:out></td>
+						<td><c:out value="${detail.plan}"></c:out></td>
 						<td><a
 							href="RationCardController?action=update&rationCardId=<c:out value="${detail.rationCardId}"/>"><button>Update</button></a>
 							<a><button onclick="msg1(${detail.rationCardId})">Delete</button></a>
 							<a
 							href="RationCardController?action=distribute&rationCardId=<c:out value="${detail.rationCardId}"/>"><button>Distribute</button></a>
+							<a
+							href="RationCardController?action=subscribe&rationCardId=<c:out value="${detail.rationCardId}"/>"><button>Subscribe</button></a>
 						</td>
 					</tr>
 				</c:forEach>

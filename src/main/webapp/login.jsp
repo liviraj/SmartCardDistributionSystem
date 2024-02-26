@@ -21,7 +21,7 @@ form {
 <body>
 	<form action="LoginHomeController" method="post">
 		<center>
-			<h1>Smart Card Distribution System</h1>
+			<h1>Smart Ration̥ Distribution System</h1>
 		</center>
 
 		<center>

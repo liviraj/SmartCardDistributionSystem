@@ -29,6 +29,8 @@ public class RationCardController extends HttpServlet {
 	private static final String VIEW_PAGE = "ViewRationCard.jsp";
 	private static final String LOGIN = "login.jsp";
 	private static final String DISTRIBUTE_PAGE = "Distribute.jsp";
+	private static final String SUBSCRIBE_PAGE = "subscribe.jsp";
+	private static final String VIEW_STOCK = "viewStock.jsp";
 	RequestDispatcher requestDispatcher = null;
 
 	public RationCardController() {
@@ -51,7 +53,15 @@ public class RationCardController extends HttpServlet {
 				requestDispatcher = request.getRequestDispatcher(LOGIN);
 			}
 		} else if (action.equals("cancel")) {
-			navigation = "home.jsp";
+			ArrayList<RationCardModel> dataList = new ArrayList<RationCardModel>();
+			RationCardService service2 = new RationCardService();
+			try {
+				dataList = service2.getAllList();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			request.setAttribute("details", dataList);
+			navigation = VIEW_PAGE;
 		} else if (action.equals("update")) {
 			if (check != null) {
 				RationCardService service = new RationCardService();
@@ -116,6 +126,27 @@ public class RationCardController extends HttpServlet {
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
 			}
+		} else if (action.equals("subscribe")) {
+			int id = Integer.parseInt(request.getParameter("rationCardId"));
+			request.setAttribute("rationId", id);
+			navigation = SUBSCRIBE_PAGE;
+		} else if (action.equals("subscribePlan")) {
+			int id = Integer.parseInt(request.getParameter("rationCardId"));
+			String subscribePlan = request.getParameter("plan");
+			RationCardService service = new RationCardService();
+			int subscribeStatus = service.subscribePlan(id, subscribePlan);
+
+			ArrayList<RationCardModel> dataList = new ArrayList<RationCardModel>();
+			try {
+				dataList = service.getAllList();
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+			request.setAttribute("details", dataList);
+			navigation = VIEW_PAGE;
+
+		} else if (action.equals("viewStock")) {
+			navigation = VIEW_STOCK;
 		} else {
 			if (check != null) {
 				ArrayList<RationCardModel> dataList = new ArrayList<RationCardModel>();
